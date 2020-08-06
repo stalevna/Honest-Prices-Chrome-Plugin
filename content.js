@@ -1,14 +1,14 @@
- Array.from(document.querySelectorAll('.price span')).forEach((elem,index) => {
-    elem.textContent.replace(/\D+/g,"")
-    if (!(index % 2)) {
-      let price = elem.textContent.replace(/\D+/g,"")
-      elem.textContent = HonestPrices(price)
-    }
-  })
-
-
 
  function HonestPrices(price){
     return (10 - Number(price)%10 + Number(price))
   }
 
+
+  Array.from(document.getElementsByClassName('price'))
+.map((element, index) => {
+  element.innerText.replace(/\s|\D/g, '')
+  if (!(index % 2)) {
+      let price = element.textContent.replace(/\D+/g,"")
+      element.textContent = HonestPrices(price)
+    }
+})
